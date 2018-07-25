@@ -1,0 +1,49 @@
+{
+  "name": "game-of-life",
+  "version": "1.0.0",
+  "description": "fp v oo GOL",
+  "main": "index.js",
+  "scripts": {
+    "tsc": "tsc",
+    "test": "rm -rf dist && tsc && cp config.test.json config.json && nyc mocha"
+  },
+  "author": "rob",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/bluebird": "^3.5.16",
+    "@types/chai": "^4.0.4",
+    "@types/lodash": "^4.14.77",
+    "@types/mocha": "^2.2.43",
+    "@types/node": "^8.0.34",
+    "chai": "^4.1.2",
+    "mocha": "^4.0.1",
+    "nyc": "^11.2.1",
+    "typescript": "^2.5.3"
+  },
+  "dependencies": {
+    "@types/js-combinatorics": "^0.5.29",
+    "bluebird": "^3.5.1",
+    "js-combinatorics": "^0.5.2",
+    "lodash": "^4.17.4"
+  },
+  "nyc": {
+    "lines": 50,
+    "statements": 50,
+    "functions": 50,
+    "branches": 50,
+    "include": [
+      "dist/src/**/*.js"
+    ],
+    "exclude": [
+      "dist/src/**/*.spec.js"
+    ],
+    "reporter": [
+      "lcov",
+      "text-summary"
+    ],
+    "cache": true,
+    "all": true,
+    "check-coverage": true,
+    "report-dir": "./coverage"
+  }
+}
